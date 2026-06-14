@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather icons for sleek minimal icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Journal.</h1>
+                <button id="new-note-btn" class="btn-primary" aria-label="Create new note">
+                    <i data-feather="plus"></i> New
+                </button>
+            </div>
+            
+            <div class="search-container">
+                <i data-feather="search" class="search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search entries...">
+            </div>
+
+            <div class="notes-list" id="notes-list">
+                <!-- Notes will be injected here via JS -->
+            </div>
+        </aside>
+
+        <!-- Main Editor Area -->
+        <main class="editor-container" id="editor-container">
+            <div class="empty-state" id="empty-state">
+                <i data-feather="book-open"></i>
+                <h2>Select a note or create a new one</h2>
+                <p>Your thoughts, captured securely.</p>
+            </div>
+            
+            <div class="editor" id="editor" style="display: none;">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Note Title" autocomplete="off">
+                    <div class="editor-actions">
+                        <span id="save-status" class="save-status">Saved</span>
+                        <button id="focus-btn" class="btn-icon" aria-label="Toggle Focus Mode">
+                            <i data-feather="maximize-2"></i>
+                        </button>
+                        <button id="delete-note-btn" class="btn-icon delete-btn" aria-label="Delete note">
+                            <i data-feather="trash-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-meta">
+                    <i data-feather="calendar"></i>
+                    <span id="note-date"></span>
+                </div>
+                <textarea id="note-body" placeholder="Start writing your thoughts..."></textarea>
+                <div class="editor-footer">
+                    <span id="word-count">0 words</span>
+                    <span class="dot-separator">•</span>
+                    <span id="char-count">0 characters</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
